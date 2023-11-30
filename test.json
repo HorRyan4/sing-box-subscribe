@@ -128,6 +128,7 @@
       "tag":"🤖 OpenAI",
       "type":"selector",
       "outbounds":[
+        "auto",
         "direct",
         "{all}"
       ],
@@ -139,6 +140,7 @@
       "tag":"🌌 Google",
       "type":"selector",
       "outbounds":[
+        "auto",
         "{all}"
       ]
     },
@@ -146,6 +148,7 @@
       "tag":"📟 Telegram",
       "type":"selector",
       "outbounds":[
+        "auto",
         "{all}"
       ]
     },
@@ -153,6 +156,7 @@
       "tag":"🐦 Twitter",
       "type":"selector",
       "outbounds":[
+        "auto",
         "{all}"
       ]
     },
@@ -160,6 +164,7 @@
       "tag":"👤 Facebook",
       "type":"selector",
       "outbounds":[
+        "auto",
         "{all}"
       ]
     },
@@ -167,6 +172,7 @@
       "tag":"🛍️ Amazon",
       "type":"selector",
       "outbounds":[
+        "auto",
         "direct",
         "{all}"
       ]
@@ -175,6 +181,7 @@
       "tag":"🍎 Apple",
       "type":"selector",
       "outbounds":[
+        "auto",
         "direct",
         "{all}"
       ]
@@ -183,6 +190,7 @@
       "tag":"🧩 Microsoft",
       "type":"selector",
       "outbounds":[
+        "auto",
         "direct",
         "{all}"
       ]
@@ -192,6 +200,7 @@
       "type":"selector",
       "outbounds":[
         "direct",
+        "auto",
         "{all}"
       ]
     },
@@ -200,6 +209,7 @@
       "type":"selector",
       "outbounds":[
         "direct",
+        "auto",
         "{all}"
       ],
       "filter":[
@@ -210,6 +220,7 @@
       "tag":"🎬 MediaVideo",
       "type":"selector",
       "outbounds":[
+        "auto",
         "{all}"
       ]
     },
@@ -217,6 +228,7 @@
       "tag":"🌏 !cn",
       "type":"selector",
       "outbounds":[
+        "auto",
         "direct",
         "{all}"
       ]
