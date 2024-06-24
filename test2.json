@@ -29,7 +29,7 @@
         "address": "https://dns.google/dns-query",
         "detour": "auto",
         "address_resolver": "tx",
-        "client_subnet": "59.53.172.129",
+        "client_subnet": "59.53.172.129"
       },
       {
         "tag": "tx",
