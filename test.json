@@ -26,12 +26,14 @@
     "servers": [
       {
         "tag": "google",
-        "address": "https://1.1.1.1/dns-query",
-        "detour": "auto"
+        "address": "https://dns.google/dns-query",
+        "detour": "auto",
+        "address_resolver": "tx",
+        "client_subnet": "59.53.172.129"
       },
       {
         "tag": "tx",
-        "address": "https://120.53.53.53/dns-query",
+        "address": "223.5.5.5",
         "detour": "direct"
       },
       {
