@@ -213,7 +213,7 @@ EOF
         }
     ],
     "activeProfile": "default",
-    "rpcPort": 8964,
+    "rpcPort": 7777,
     "socks5Port": 3080,
     "loggingLevel": "INFO"
 }
