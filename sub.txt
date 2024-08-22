@@ -1,1 +1,1 @@
-ss://MjAyMi1ibGFrZTMtYWVzLTI1Ni1nY206TlRZM01XRmlOemxtTjJVM01XUXdNRFl3TUdNMlltSXhZalF3WkRRM01tST06TnpNeU5HRXlZVEl0WXpnMU1DMDBNekZrTFRsa05UVXRaV0V6TnpFNFlUaz0=@35.247.145.206:48915#GCP.SG
+vless://812043dc-a818-4cf3-85ab-934cab226647@178.173.237.223:2087?security=tls&sni=hk2.horryan4.eu.org&type=ws&path=/812043dc-a818-4cf3-85ab-934cab226647-vless?ed%3D2048&host=hk2.horryan4.eu.org&encryption=none#yx%20hk%20vless-ws-tls
