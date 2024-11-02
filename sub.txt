@@ -1,3 +1,5 @@
+ss://YWVzLTEyOC1nY206WHM4VitmNEJlOEtsRGUxTndmWVlYVk81Snd5MDBSNlVvaUdLMlRRWmZYST0@bgp.aaax.us:10021#%F0%9F%87%AD%F0%9F%87%B0%20LC%20ipv6
+ss://YWVzLTEyOC1nY206a2dNV2htdDJUM1VUQ2xLRnByRXdHeGc5YnREMjNGWFlVZExONS9zamREaz0@121.14.61.160:10021#%F0%9F%87%AD%F0%9F%87%B0%20HK%20ss
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp0MHNybWR4cm0zeHlqbnZxejlld2x4YjJteXE3cmp1dg@125.227.86.44:2377?plugin=obfs-local%3Bobfs%3Dtls%3Bobfs-host%3D%28baidu.com%29fa27c3f%3A178137#%F0%9F%87%A8%F0%9F%87%B3TW_44%20%40WangCai_8
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp0MHNybWR4cm0zeHlqbnZxejlld2x4YjJteXE3cmp1dg@125.227.86.45:2377?plugin=obfs-local%3Bobfs%3Dtls%3Bobfs-host%3D%28baidu.com%29fa27c3f%3A178137#%F0%9F%87%A8%F0%9F%87%B3TW_45%20%40WangCai_8
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp0MHNybWR4cm0zeHlqbnZxejlld2x4YjJteXE3cmp1dg@125.227.86.46:2377?plugin=obfs-local%3Bobfs%3Dtls%3Bobfs-host%3D%28baidu.com%29fa27c3f%3A178137#%F0%9F%87%A8%F0%9F%87%B3TW_46%20%40WangCai_8
