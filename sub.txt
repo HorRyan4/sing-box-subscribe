@@ -1,1 +1,4 @@
-hy2://b50f923f-1508-4991-a4c9-b22ce9a50085@au.1010520.shop:10001/?sni=AU.1010520.shop#%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A-%E4%B8%8B%E8%BD%BD
+vless://8ef3d61c-cbde-4e2b-920b-02e138fb4777@64.110.90.125:52052?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.yahoo.com&fp=chrome&pbk=DfMqp52uMunQ1wJ8SPefthVHHpUAJRsnT4X096UKzFw&sid=b3752755&type=tcp&headerType=none#vl-reality-dci-92343
+vmess://eyJhZGQiOiI2NC4xMTAuOTAuMTI1IiwiYWlkIjoiMCIsImhvc3QiOiJ3d3cuYmluZy5jb20iLCJpZCI6IjhlZjNkNjFjLWNiZGUtNGUyYi05MjBiLTAyZTEzOGZiNDc3NyIsIm5ldCI6IndzIiwicGF0aCI6IjhlZjNkNjFjLWNiZGUtNGUyYi05MjBiLTAyZTEzOGZiNDc3Ny12bSIsInBvcnQiOiI1MjA1MyIsInBzIjoidm0td3MtZGNpLTkyMzQzIiwidGxzIjoiIiwidHlwZSI6Im5vbmUiLCJ2IjoiMiJ9Cg==
+hysteria2://8ef3d61c-cbde-4e2b-920b-02e138fb4777@64.110.90.125:52054?&alpn=h3&insecure=1&mport=52054&sni=www.bing.com#hy2-dci-92343
+tuic://8ef3d61c-cbde-4e2b-920b-02e138fb4777:8ef3d61c-cbde-4e2b-920b-02e138fb4777@64.110.90.125:52055?congestion_control=bbr&udp_relay_mode=native&alpn=h3&sni=www.bing.com&allow_insecure=1#tu5-dci-92343
