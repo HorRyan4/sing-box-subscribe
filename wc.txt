@@ -5,3 +5,4 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIk5paSB2bWVzcy13cyIsDQogICJhZGQiOiAiMTUu
 vless://4b982887-e5a8-4d58-b983-7b6d33f8fa7e@13.250.131.37:443?encryption=none&security=tls&sni=hkargo.horryan4.eu.org&type=ws&host=hkargo.horryan4.eu.org&path=%2Fargox-vl%3Fed%3D2048#hk-Vl
 vless://4b982887-e5a8-4d58-b983-7b6d33f8fa7e@13.250.14.76:443?encryption=none&security=tls&sni=hkargo.horryan4.eu.org&type=ws&host=hkargo.horryan4.eu.org&path=%2Fargox-vl%3Fed%3D2048#hk-Vl
 vless://4b982887-e5a8-4d58-b983-7b6d33f8fa7e@3.112.21.102:443?encryption=none&security=tls&sni=hkargo.horryan4.eu.org&type=ws&host=hkargo.horryan4.eu.org&path=%2Fargox-vl%3Fed%3D2048#hk-Vl
+hy2://0aed82ca-fd08-11ef-8cf9-f23c93136cb3@107.167.18.123:443/?insecure=1&sni=06a68208-st69s0-su9bm5-1phl.la.shifen.uk#us
