@@ -1,0 +1,220 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+proxies:
+  - {name: HK Akari 01, server: jihpit263dsa5a2aogsd0ag256a.yaoh0vcc.usercc.userdog.sbs, port: 16009, type: ss, cipher: aes-256-gcm, password: e1122f18-254b-4716-b6ac-551b3a0faf3c, udp: true, tfo: true}
+  - {name: HK Hytron 02, server: jp3.d2739175-d55e-ec5a-892e-11777d1fee81.5584fc1f.the-best-airport.com, port: 443, type: trojan, password: d5675cc0-5302-423f-b988-3e4b6b31561d, sni: new.download.the-best-airport.com, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: HK Hytron 03, server: hk1.5627469f-4351-eac7-eb23-db35fd483588.6df03129.the-best-airport.com, port: 443, type: trojan, password: 5b78a330-3563-47a4-a77d-df9e19e8799c, sni: new.download.the-best-airport.com, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: HK ASNET 04, server: hsxg.huasuan666.top, port: 22153, type: hysteria2, password: 3a6c953d-4085-4401-a5fe-425eb77a75e7, sni: hsxg.huasuan666.top, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: SG Akari 01, server: jihpit263dsa5a2aogsd0ag256a.yaoh0vcc.usercc.userdog.sbs, port: 18001, type: ss, cipher: aes-256-gcm, password: e1122f18-254b-4716-b6ac-551b3a0faf3c, udp: true, tfo: true}
+  - {name: SG Amazon 02, server: gy1.hdcloud.link, port: 443, type: trojan, password: 5d4a795b-8f1b-4e08-b155-d729b1f726ae, sni: static.icloud.com, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: SG AMAZON 03, server: sg005.421421.xyz, port: 20230, type: trojan, password: f08d6a6b-a0b3-410e-a0ba-eae71b521904, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: SG AMAZON 04, server: sg001.421421.xyz, port: 20230, type: vless, tls: true, packet-encoding: xudp, uuid: aef43c17-8cf7-4ffc-800b-1dfb4e89ba83, servername: www.nvidia.com, reality-opts: {public-key: WEttTimK6Q9qB8cd2AQ8kyDJOVfKAlPIl5E1T7-q0Dw, short-id: 1afbe06d}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: SG AMAZON 05, server: sg007.421421.xyz, port: 20230, type: trojan, password: 8c92b985-02fc-4bc1-8cd7-a12e5aae243b, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: SG AMAZON 06, server: sg004.421421.xyz, port: 20230, type: vless, tls: true, packet-encoding: xudp, uuid: f08d6a6b-a0b3-410e-a0ba-eae71b521904, servername: www.nvidia.com, reality-opts: {public-key: Bkxd25PPovqeYw6AevM-L266KM2kLDJomgmorzvGFmM, short-id: 2c846487}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: SG AMAZON 07, server: sg002.421421.xyz, port: 20230, type: vless, tls: true, packet-encoding: xudp, uuid: 13430296-2407-4839-900f-db97584fb27a, servername: www.nvidia.com, reality-opts: {public-key: 1cs7mxEcoVKwcYepAnKgqHAFhRxPv6aO3tv7lNhwLDQ, short-id: 46bf6ea0}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: SG AMAZON 08, server: sg003.421421.xyz, port: 20230, type: vless, tls: true, packet-encoding: xudp, uuid: 13430296-2407-4839-900f-db97584fb27a, servername: www.nvidia.com, reality-opts: {public-key: hBXQa1tSoP0jjIezHxeyKhf1YKxe8CoBHoxvIxEJuAc, short-id: 2c5ecaae}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: SG AMAZON 09, server: sg008.421421.xyz, port: 20230, type: trojan, password: 58176021-8165-48d5-94b1-ad3e96e71e8b, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: SG Amazon 10, server: sg006.421421.xyz, port: 20230, type: trojan, password: 8c92b985-02fc-4bc1-8cd7-a12e5aae243b, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: SG GREYWOLF 11, server: 103.36.91.32, port: 8388, type: ss, cipher: chacha20-ietf, password: asd123456, udp: true, tfo: true}
+  - {name: SG AMAZON 12, server: sg03.333210.xyz, port: 40000, type: vless, tls: true, packet-encoding: xudp, uuid: acf03723-aeff-4724-9536-4234cda1fcf4, servername: www.walmart.com, reality-opts: {public-key: Jqwg_L2lzNEBWCaH4oyqbw7KfqxtOA0TQXtxTaAU1nU, short-id: aec0af41}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: JP Akari 01, server: jihpit263dsa5a2aogsd0ag256a.yaoh0vcc.usercc.userdog.sbs, port: 19004, type: ss, cipher: aes-256-gcm, password: e1122f18-254b-4716-b6ac-551b3a0faf3c, udp: true, tfo: true}
+  - {name: JP AMAZON 02, server: jp006.421421.xyz, port: 20230, type: trojan, password: 8c92b985-02fc-4bc1-8cd7-a12e5aae243b, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: JP AMAZON 03, server: jp005.421421.xyz, port: 20230, type: trojan, password: 8c92b985-02fc-4bc1-8cd7-a12e5aae243b, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: JP AMAZON 04, server: jp003.421421.xyz, port: 20230, type: vless, tls: true, packet-encoding: xudp, uuid: 13430296-2407-4839-900f-db97584fb27a, servername: www.nvidia.com, reality-opts: {public-key: 4DQqVav-gK4Y1cMDDt4qyVpQf0GB6NkPgCPnjwude3c, short-id: d3b6f0c3}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: JP AMAZON 05, server: jp008.421421.xyz, port: 20230, type: trojan, password: 4deefa4b-349d-4db8-be3c-d4d61c862718, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: JP AMAZON 06, server: jp007.421421.xyz, port: 20230, type: trojan, password: 8c92b985-02fc-4bc1-8cd7-a12e5aae243b, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: JP AMAZON 07, server: jp004.421421.xyz, port: 20230, type: vless, tls: true, packet-encoding: xudp, uuid: 13430296-2407-4839-900f-db97584fb27a, servername: www.nvidia.com, reality-opts: {public-key: lbOfuIKCBPcQH4AEnwnPw1LNxWrl-Bul6KU99H240Fc, short-id: abae4722}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: JP ASNET 08, server: hsrb.huasuan666.top, port: 22161, type: hysteria2, password: bfec5499-2d9a-4e8f-b4c4-d866dbc4194d, sni: hsrb.huasuan666.top, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: JP AMAZON 09, server: jp002.421421.xyz, port: 20230, type: vless, tls: true, packet-encoding: xudp, uuid: 13430296-2407-4839-900f-db97584fb27a, servername: www.nvidia.com, reality-opts: {public-key: yNOemxnmT-HQ2HiR9fdHSN2B8HpHsRyMIsir_iAlaHE, short-id: 5c3c9f11}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: JP Datacamp 10, server: v6.heduian.link, port: 30806, type: vmess, uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /oooo, headers: {Host: ocbc.com}}, udp: true, tfo: true}
+  - {name: JP ASNET 11, server: hsrb.huasuan666.top, port: 22161, type: hysteria2, password: 8f2bc0fc-7fb8-457f-b4df-5bf0b3f4d25c, sni: hsrb.huasuan666.top, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: US Akari 01, server: jihpit263dsa5a2aogsd0ag256a.yaoh0vcc.usercc.userdog.sbs, port: 20002, type: ss, cipher: aes-256-gcm, password: e1122f18-254b-4716-b6ac-551b3a0faf3c, udp: true, tfo: true}
+  - {name: US HostPapa 02, server: hsmg.huasuan666.top, port: 22151, type: hysteria2, password: b08fee86-8d51-4a82-bcdc-0a27fe64c2b7, sni: hsmg.huasuan666.top, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: US Amazon 03, server: test.hdcloud.link, port: 443, type: trojan, password: 5d4a795b-8f1b-4e08-b155-d729b1f726ae, sni: static.icloud.com, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: US Hytron 04, server: us1.53cdf35c-caf1-9e05-f89c-e2810b36ef43.36a8c922.the-best-airport.com, port: 443, type: trojan, password: d0f45081-a436-406b-a818-a0c2695e985a, sni: new.download.the-best-airport.com, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: US Amazon 05, server: us004.421421.xyz, port: 20230, type: trojan, password: 13430296-2407-4839-900f-db97584fb27a, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: US AMAZON 06, server: us001.421421.xyz, port: 20230, type: vless, tls: true, packet-encoding: xudp, uuid: 13430296-2407-4839-900f-db97584fb27a, servername: www.nvidia.com, reality-opts: {public-key: zWY5WwfH-Q8xvLZAr28WjRVk05L4WCp4B7F1lWPM0A8, short-id: c1839f26}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: US AS 07, server: 103.21.244.95, port: 443, type: vless, tls: true, packet-encoding: xudp, uuid: 34c01e61-f4f3-4afb-a83b-406caf8caa33, servername: yg.bantony199.top, reality-opts: {public-key: zWY5WwfH-Q8xvLZAr28WjRVk05L4WCp4B7F1lWPM0A8, short-id: c1839f26}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: US AS 08, server: 104.16.21.197, port: 443, type: vless, tls: true, packet-encoding: xudp, uuid: 34c01e61-f4f3-4afb-a83b-406caf8caa33, servername: yg.bantony199.top, reality-opts: {public-key: zWY5WwfH-Q8xvLZAr28WjRVk05L4WCp4B7F1lWPM0A8, short-id: c1839f26}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: US AMAZON 09, server: us004.421421.xyz, port: 20230, type: trojan, password: 8c92b985-02fc-4bc1-8cd7-a12e5aae243b, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: US AMAZON 10, server: us003.421421.xyz, port: 20230, type: trojan, password: f08d6a6b-a0b3-410e-a0ba-eae71b521904, sni: www.alibaba.com, skip-cert-verify: true, network: ws, ws-opts: {path: "", headers: {Host: www.alibaba.com}}, udp: true, tfo: true}
+  - {name: US HostPapa 11, server: newus-ceg5.555199.xyz, port: 8443, type: vless, tls: true, packet-encoding: xudp, uuid: d5a5b3a4-ae52-46cc-bdf6-334146e18f1d, servername: ssl.wsfog.co.uk, flow: xtls-rprx-vision, reality-opts: {public-key: zWY5WwfH-Q8xvLZAr28WjRVk05L4WCp4B7F1lWPM0A8, short-id: c1839f26}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: US OVH 12, server: 15.204.9.102.yixianled.com, port: 46515, type: vmess, uuid: 6578c489-28d2-4f12-8c2f-9f2d8789626d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /, headers: {Host: 15.204.9.102.yixianled.com}}, udp: true, tfo: true}
+  - {name: US AS 13, server: 104.24.230.10, port: 443, type: vless, tls: true, packet-encoding: xudp, uuid: 72982133-27fb-46fc-9061-61113e77e201, servername: jack.jack-cq.click, reality-opts: {public-key: zWY5WwfH-Q8xvLZAr28WjRVk05L4WCp4B7F1lWPM0A8, short-id: c1839f26}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: US DIGITALOCEAN 14, server: v29.heduian.link, port: 30829, type: vmess, uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /oooo, headers: {Host: ocbc.com}}, udp: true, tfo: true}
+  - {name: US Oracle 15, server: l0-cdn-02.dpp.pp.ua, port: 443, type: trojan, password: e19d5b93-67b1-4af7-b578-ecd46aac69a0, skip-cert-verify: true, network: ws, ws-opts: {path: ""}, udp: true, tfo: true}
+  - {name: TW Akari 01, server: jihpit263dsa5a2aogsd0ag256a.yaoh0vcc.usercc.userdog.sbs, port: 17003, type: ss, cipher: aes-256-gcm, password: e1122f18-254b-4716-b6ac-551b3a0faf3c, udp: true, tfo: true}
+  - {name: AE Melbikomas 01, server: ppy-boardv2.02ijp4uos1.download, port: 26078, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: AU DIGITALOCEAN 01, server: v35.heduian.link, port: 30835, type: vmess, uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /oooo, headers: {Host: baidu.com}}, udp: true, tfo: true}
+  - {name: AZ HOSTART 01, server: ppy-boardv2.02ijp4uos1.download, port: 26139, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: BD Kaopu 01, server: ppy-boardv2.02ijp4uos1.download, port: 26084, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: BE GCSL 01, server: ppy-boardv2.02ijp4uos1.download, port: 26150, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: BG Belcloud 01, server: ppy-boardv2.02ijp4uos1.download, port: 26094, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: CN HAAC 01, server: 47.92.152.169, port: 50002, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: CN CUCB 02, server: 112.132.215.12, port: 50002, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: CN CMCGC 03, server: 120.210.205.59, port: 50002, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: DE NKtelecom 01, server: hsdg.huasuan666.top, port: 22155, type: hysteria2, password: b08fee86-8d51-4a82-bcdc-0a27fe64c2b7, sni: hsdg.huasuan666.top, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: DE Amazon 02, server: starlink-fra2.2513142.xyz, port: 443, type: hysteria2, password: qQF1plCfdKF6qPJbFAewdTOa, sni: www.cloudflare.com, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: DE GCSL 03, server: ppy-boardv2.02ijp4uos1.download, port: 26128, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: ES Baxet 01, server: ppy-boardv2.02ijp4uos1.download, port: 26126, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: FR Pq 01, server: v37.heduian.link, port: 30837, type: vmess, uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /oooo, headers: {Host: v37.heduian.link}}, udp: true, tfo: true}
+  - {name: FR Ikoula 02, server: fr.555199.xyz, port: 8443, type: vless, tls: true, packet-encoding: xudp, uuid: d5a5b3a4-ae52-46cc-bdf6-334146e18f1d, servername: ssl.wsfog.co.uk, flow: xtls-rprx-vision, reality-opts: {public-key: zWY5WwfH-Q8xvLZAr28WjRVk05L4WCp4B7F1lWPM0A8, short-id: c1839f26}, client-fingerprint: random, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: GB M247 01, server: jihpit263dsa5a2aogsd0ag256a.yaoh0vcc.usercc.userdog.sbs, port: 23001, type: ss, cipher: aes-256-gcm, password: e1122f18-254b-4716-b6ac-551b3a0faf3c, udp: true, tfo: true}
+  - {name: GB RCFITL 02, server: hsyg.huasuan666.top, port: 22156, type: hysteria2, password: 3a6c953d-4085-4401-a5fe-425eb77a75e7, sni: hsyg.huasuan666.top, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: ID Hadi 01, server: ppy-boardv2.02ijp4uos1.download, port: 26144, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: IE GCSL 01, server: ppy-boardv2.02ijp4uos1.download, port: 26151, type: vmess, uuid: aa15b97a-24b1-3a31-824a-bc52f5a15bac, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: KH IICWTBVIT 01, server: ppy-boardv2.02ijp4uos1.download, port: 26082, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: KR Korea 01, server: jihpit263dsa5a2aogsd0ag256a.yaoh0vcc.usercc.userdog.sbs, port: 21001, type: ss, cipher: aes-256-gcm, password: e1122f18-254b-4716-b6ac-551b3a0faf3c, udp: true, tfo: true}
+  - {name: KR SK 02, server: p141.panda001.net, port: 4652, type: ss, cipher: aes-256-cfb, password: qwerREWQ@@, udp: true, tfo: true}
+  - {name: KR AMAZON 03, server: starlink-sol.2513142.xyz, port: 443, type: hysteria2, password: qQF1plCfdKF6qPJbFAewdTOa, sni: www.cloudflare.com, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: LT GCSL 01, server: ppy-boardv2.02ijp4uos1.download, port: 26153, type: vmess, uuid: aa15b97a-24b1-3a31-824a-bc52f5a15bac, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: LV ASNET 01, server: ppy-boardv2.02ijp4uos1.download, port: 26102, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: MY STSB 01, server: ppy-boardv2.02ijp4uos1.download, port: 26137, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: NL NKtelecom 01, server: hshl.huasuan666.top, port: 22157, type: hysteria2, password: a503efc7-b681-466f-be23-434483b2a07b, sni: hshl.huasuan666.top, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: NL PQ 02, server: v30.heduian.link, port: 30830, type: vmess, uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /oooo, headers: {Host: ocbc.com}}, udp: true, tfo: true}
+  - {name: OM Kaopu 01, server: ppy-boardv2.02ijp4uos1.download, port: 26133, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: PH Zenlayer 01, server: ppy-boardv2.02ijp4uos1.download, port: 26080, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: RO CFIS 01, server: ppy-boardv2.02ijp4uos1.download, port: 26146, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: RU TGS4 01, server: jihpit263dsa5a2aogsd0ag256a.yaoh0vcc.usercc.userdog.sbs, port: 22002, type: ss, cipher: aes-256-gcm, password: e1122f18-254b-4716-b6ac-551b3a0faf3c, udp: true, tfo: true}
+  - {name: RU LLC 02, server: hsels.huasuan666.top, port: 22160, type: hysteria2, password: 366dad01-dd99-47be-92fa-6beddd09fff9, sni: hsels.huasuan666.top, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: SC Kaopu 01, server: ppy-boardv2.02ijp4uos1.download, port: 26124, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+  - {name: SI Optimus 01, server: 91.132.94.200, port: 989, type: ss, cipher: aes-256-cfb, password: f8f7aCzcPKbsF8p3, udp: true, tfo: true}
+  - {name: Unknown Hytron 01, server: jihpit263dsa5a2aogsd0ag256a.yaoh0vcc.usercc.userdog.sbs, port: 16012, type: ss, cipher: aes-256-gcm, password: 5d1fcbee-ba62-4f1e-8b7d-463b788a52a9, udp: true, tfo: true}
+  - {name: VN VIETPN 01, server: 103.186.154.37, port: 38388, type: ss, cipher: aes-256-cfb, password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV, udp: true, tfo: true}
+  - {name: VN TQDTJSC 02, server: ppy-boardv2.02ijp4uos1.download, port: 26076, type: vmess, uuid: 1cff3ca9-a6d4-34b9-b7f7-62ac3ced85c4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true, tfo: true}
+proxy-groups:
+  - {name: Proxy, type: select, proxies: [Auto, DIRECT, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan, HK Akari 01, HK Hytron 02, HK Hytron 03, HK ASNET 04, SG Akari 01, SG Amazon 02, SG AMAZON 03, SG AMAZON 04, SG AMAZON 05, SG AMAZON 06, SG AMAZON 07, SG AMAZON 08, SG AMAZON 09, SG Amazon 10, SG GREYWOLF 11, SG AMAZON 12, JP Akari 01, JP AMAZON 02, JP AMAZON 03, JP AMAZON 04, JP AMAZON 05, JP AMAZON 06, JP AMAZON 07, JP ASNET 08, JP AMAZON 09, JP Datacamp 10, JP ASNET 11, US Akari 01, US HostPapa 02, US Amazon 03, US Hytron 04, US Amazon 05, US AMAZON 06, US AS 07, US AS 08, US AMAZON 09, US AMAZON 10, US HostPapa 11, US OVH 12, US AS 13, US DIGITALOCEAN 14, US Oracle 15, TW Akari 01, AE Melbikomas 01, AU DIGITALOCEAN 01, AZ HOSTART 01, BD Kaopu 01, BE GCSL 01, BG Belcloud 01, CN HAAC 01, CN CUCB 02, CN CMCGC 03, DE NKtelecom 01, DE Amazon 02, DE GCSL 03, ES Baxet 01, FR Pq 01, FR Ikoula 02, GB M247 01, GB RCFITL 02, ID Hadi 01, IE GCSL 01, KH IICWTBVIT 01, KR Korea 01, KR SK 02, KR AMAZON 03, LT GCSL 01, LV ASNET 01, MY STSB 01, NL NKtelecom 01, NL PQ 02, OM Kaopu 01, PH Zenlayer 01, RO CFIS 01, RU TGS4 01, RU LLC 02, SC Kaopu 01, SI Optimus 01, Unknown Hytron 01, VN VIETPN 01, VN TQDTJSC 02]}
+  - {name: Auto, type: fallback, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [HK Akari 01, HK Hytron 02, HK Hytron 03, HK ASNET 04, SG Akari 01, SG Amazon 02, SG AMAZON 03, SG AMAZON 04, SG AMAZON 05, SG AMAZON 06, SG AMAZON 07, SG AMAZON 08, SG AMAZON 09, SG Amazon 10, SG GREYWOLF 11, SG AMAZON 12, JP Akari 01, JP AMAZON 02, JP AMAZON 03, JP AMAZON 04, JP AMAZON 05, JP AMAZON 06, JP AMAZON 07, JP ASNET 08, JP AMAZON 09, JP Datacamp 10, JP ASNET 11, US Akari 01, US HostPapa 02, US Amazon 03, US Hytron 04, US Amazon 05, US AMAZON 06, US AS 07, US AS 08, US AMAZON 09, US AMAZON 10, US HostPapa 11, US OVH 12, US AS 13, US DIGITALOCEAN 14, US Oracle 15, TW Akari 01, AE Melbikomas 01, AU DIGITALOCEAN 01, AZ HOSTART 01, BD Kaopu 01, BE GCSL 01, BG Belcloud 01, CN HAAC 01, CN CUCB 02, CN CMCGC 03, DE NKtelecom 01, DE Amazon 02, DE GCSL 03, ES Baxet 01, FR Pq 01, FR Ikoula 02, GB M247 01, GB RCFITL 02, ID Hadi 01, IE GCSL 01, KH IICWTBVIT 01, KR Korea 01, KR SK 02, KR AMAZON 03, LT GCSL 01, LV ASNET 01, MY STSB 01, NL NKtelecom 01, NL PQ 02, OM Kaopu 01, PH Zenlayer 01, RO CFIS 01, RU TGS4 01, RU LLC 02, SC Kaopu 01, SI Optimus 01, Unknown Hytron 01, VN VIETPN 01, VN TQDTJSC 02]}
+  - {name: Apple, type: select, proxies: [Proxy, DIRECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: BiliBili, type: select, proxies: [Proxy, DIRECT, Auto, 🇭🇰 Hong Kong, 🇨🇳 Taiwan]}
+  - {name: Netflix, type: select, proxies: [Proxy, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: Disney, type: select, proxies: [Proxy, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: YouTube, type: select, proxies: [Proxy, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: TikTok, type: select, proxies: [Proxy, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: GlobalMedia, type: select, proxies: [Proxy, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: OpenAI, type: select, proxies: [Proxy, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: Google, type: select, proxies: [Proxy, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: Microsoft, type: select, proxies: [Proxy, DIRECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: Steam, type: select, proxies: [Proxy, DIRECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: PayPal, type: select, proxies: [Proxy, DIRECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: Telegram, type: select, proxies: [Proxy, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
+  - {name: Lan, type: select, proxies: [Proxy, Auto, DIRECT]}
+  - {name: ChinaMax, type: select, proxies: [Proxy, Auto, DIRECT]}
+  - {name: Final, type: select, proxies: [Proxy, Auto, DIRECT]}
+  - {name: 🇭🇰 Hong Kong, type: url-test, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [HK Akari 01, HK Hytron 02, HK Hytron 03, HK ASNET 04]}
+  - {name: 🇸🇬 Singapore, type: url-test, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [SG Akari 01, SG Amazon 02, SG AMAZON 03, SG AMAZON 04, SG AMAZON 05, SG AMAZON 06, SG AMAZON 07, SG AMAZON 08, SG AMAZON 09, SG Amazon 10, SG GREYWOLF 11, SG AMAZON 12]}
+  - {name: 🇯🇵 Japan, type: url-test, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [JP Akari 01, JP AMAZON 02, JP AMAZON 03, JP AMAZON 04, JP AMAZON 05, JP AMAZON 06, JP AMAZON 07, JP ASNET 08, JP AMAZON 09, JP Datacamp 10, JP ASNET 11]}
+  - {name: 🇺🇸 United States, type: url-test, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [US Akari 01, US HostPapa 02, US Amazon 03, US Hytron 04, US Amazon 05, US AMAZON 06, US AS 07, US AS 08, US AMAZON 09, US AMAZON 10, US HostPapa 11, US OVH 12, US AS 13, US DIGITALOCEAN 14, US Oracle 15]}
+  - {name: 🇨🇳 Taiwan, type: url-test, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [TW Akari 01]}
+rules:
+  - RULE-SET,Apple_Classical_No_Resolve,Apple
+  - RULE-SET,BiliBili_No_Resolve,BiliBili
+  - RULE-SET,Netflix_No_Resolve,Netflix
+  - RULE-SET,Disney_No_Resolve,Disney
+  - RULE-SET,YouTube_No_Resolve,YouTube
+  - RULE-SET,TikTok_No_Resolve,TikTok
+  - RULE-SET,GlobalMedia_Classical_No_Resolve,GlobalMedia
+  - RULE-SET,OpenAI_No_Resolve,OpenAI
+  - RULE-SET,Google_No_Resolve,Google
+  - RULE-SET,Microsoft_No_Resolve,Microsoft
+  - RULE-SET,PayPal_No_Resolve,PayPal
+  - RULE-SET,Telegram_No_Resolve,Telegram
+  - RULE-SET,Steam_No_Resolve,Steam
+  - RULE-SET,Lan_No_Resolve,Lan
+  - RULE-SET,ChinaMax_Classical_No_IPv6_No_Resolve,ChinaMax
+  - MATCH,Final
+rule-providers:
+  Apple_Classical_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical_No_Resolve.yaml
+    path: ./providers/1382714063091383325.yaml
+    interval: 86400
+  BiliBili_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili_No_Resolve.yaml
+    path: ./providers/15427680467615148193.yaml
+    interval: 86400
+  Netflix_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_No_Resolve.yaml
+    path: ./providers/3095517576045242515.yaml
+    interval: 86400
+  Disney_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney_No_Resolve.yaml
+    path: ./providers/16730261648837664781.yaml
+    interval: 86400
+  YouTube_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube_No_Resolve.yaml
+    path: ./providers/7793569929749877519.yaml
+    interval: 86400
+  TikTok_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok_No_Resolve.yaml
+    path: ./providers/11554982043438683725.yaml
+    interval: 86400
+  GlobalMedia_Classical_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical_No_Resolve.yaml
+    path: ./providers/8586276791519100849.yaml
+    interval: 86400
+  OpenAI_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml
+    path: ./providers/10003867553944401341.yaml
+    interval: 86400
+  Google_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_No_Resolve.yaml
+    path: ./providers/6866317176011189215.yaml
+    interval: 86400
+  Microsoft_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft_No_Resolve.yaml
+    path: ./providers/5985473173379392979.yaml
+    interval: 86400
+  PayPal_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal_No_Resolve.yaml
+    path: ./providers/15088493651586754751.yaml
+    interval: 86400
+  Telegram_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml
+    path: ./providers/1666671147171134695.yaml
+    interval: 86400
+  Steam_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam_No_Resolve.yaml
+    path: ./providers/185371531745484315.yaml
+    interval: 86400
+  Lan_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan_No_Resolve.yaml
+    path: ./providers/1243614840536111263.yaml
+    interval: 86400
+  ChinaMax_Classical_No_IPv6_No_Resolve:
+    type: http
+    behavior: classical
+    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_IPv6_No_Resolve.yaml
+    path: ./providers/15219913603349139099.yaml
+    interval: 86400
