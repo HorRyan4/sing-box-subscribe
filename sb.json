@@ -1,0 +1,1131 @@
+{
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns_proxy",
+        "address": "tcp://1.1.1.1",
+        "address_resolver": "dns_resolver",
+        "strategy": "ipv4_only",
+        "detour": "🚀 节点选择"
+      },
+      {
+        "tag": "dns_direct",
+        "address": "https://dns.alidns.com/dns-query",
+        "address_resolver": "dns_resolver",
+        "strategy": "ipv4_only",
+        "detour": "DIRECT"
+      },
+      {
+        "tag": "dns_resolver",
+        "address": "223.5.5.5",
+        "detour": "DIRECT"
+      },
+      {
+        "tag": "dns_success",
+        "address": "rcode://success"
+      },
+      {
+        "tag": "dns_refused",
+        "address": "rcode://refused"
+      },
+      {
+        "tag": "dns_fakeip",
+        "address": "fakeip"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "dns_resolver"
+      },
+      {
+        "rule_set": "geolocation-!cn",
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "server": "dns_fakeip"
+      },
+      {
+        "rule_set": "geolocation-!cn",
+        "query_type": [
+          "CNAME"
+        ],
+        "server": "dns_proxy"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA",
+          "CNAME"
+        ],
+        "invert": true,
+        "server": "dns_refused",
+        "disable_cache": true
+      }
+    ],
+    "final": "dns_direct",
+    "independent_cache": true,
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    }
+  },
+  "ntp": {
+    "enabled": true,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "30m"
+  },
+   "inbounds":[
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "tcp_fast_open": true,
+      "tcp_multi_path": true,
+      "udp_fragment": false
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "",
+      "address": [
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": false,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080,
+          "bypass_domain": [],
+          "match_domain": []
+        }
+      },
+      "stack": "mixed"
+    }
+   ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "🚀 节点选择",
+      "outbounds": [
+        "DIRECT",
+        "REJECT",
+        "⚡ 自动选择",
+        "HK-1",
+        "HK-2",
+        "HK3-HY2",
+        "HK4-HY2",
+        "HK5-HY2",
+        "JP-1",
+        "JP-2",
+        "JP1-HY2",
+        "JP2-HY2",
+        "JP3-HY2",
+        "JP4-HY2",
+        "JP5-HY2",
+        "JP6-HY2",
+        "JP7-HY2",
+        "JP8-HY2",
+        "JP9-HY2",
+        "JP10-HY2",
+        "KR-1",
+        "KR-2",
+        "SG-1",
+        "SG-2",
+        "TW1-HY2",
+        "TW2-HY2",
+        "TW3-HY2",
+        "TW4-HY2",
+        "TW5-HY2",
+        "TW6-HY2",
+        "TW7-HY2",
+        "TW8-HY2",
+        "TW9-HY2",
+        "TW10-HY2",
+        "US3-HY2",
+        "US4-HY2",
+        "US5-HY2",
+        "US6-HY2",
+        "US7-HY2",
+        "US8-HY2",
+        "US9-HY2",
+        "US10-HY2"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "⚡ 自动选择",
+      "outbounds": [
+        "HK-1",
+        "HK-2",
+        "HK3-HY2",
+        "HK4-HY2",
+        "HK5-HY2",
+        "JP-1",
+        "JP-2",
+        "JP1-HY2",
+        "JP2-HY2",
+        "JP3-HY2",
+        "JP4-HY2",
+        "JP5-HY2",
+        "JP6-HY2",
+        "JP7-HY2",
+        "JP8-HY2",
+        "JP9-HY2",
+        "JP10-HY2",
+        "KR-1",
+        "KR-2",
+        "SG-1",
+        "SG-2",
+        "TW1-HY2",
+        "TW2-HY2",
+        "TW3-HY2",
+        "TW4-HY2",
+        "TW5-HY2",
+        "TW6-HY2",
+        "TW7-HY2",
+        "TW8-HY2",
+        "TW9-HY2",
+        "TW10-HY2",
+        "US3-HY2",
+        "US4-HY2",
+        "US5-HY2",
+        "US6-HY2",
+        "US7-HY2",
+        "US8-HY2",
+        "US9-HY2",
+        "US10-HY2"
+      ]
+    },
+    {
+      "type": "block",
+      "tag": "REJECT"
+    },
+    {
+      "type": "direct",
+      "tag": "DIRECT"
+    },
+    {
+      "type": "vless",
+      "tag": "HK-1",
+      "server": "hk1-r.ddns-link-b5.uk",
+      "server_port": 10126,
+      "uuid": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tcp_fast_open": false,
+      "tls": {
+        "enabled": true,
+        "server_name": "s0.awsstatic.com",
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE",
+          "short_id": "686c0ef0"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "update"
+      },
+      "network": "tcp",
+      "flow": ""
+    },
+    {
+      "type": "vless",
+      "tag": "HK-2",
+      "server": "hk2-r.ddns-link-b5.uk",
+      "server_port": 10127,
+      "uuid": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tcp_fast_open": false,
+      "tls": {
+        "enabled": true,
+        "server_name": "s0.awsstatic.com",
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE",
+          "short_id": "686c0ef0"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "update"
+      },
+      "network": "tcp",
+      "flow": ""
+    },
+    {
+      "tag": "HK3-HY2",
+      "type": "hysteria2",
+      "server": "hk3.dexlos.com",
+      "server_port": 5390,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk3.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "HK4-HY2",
+      "type": "hysteria2",
+      "server": "hk4.dexlos.com",
+      "server_port": 7426,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk4.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "HK5-HY2",
+      "type": "hysteria2",
+      "server": "hk5.dexlos.com",
+      "server_port": 9896,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk5.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "type": "vless",
+      "tag": "JP-1",
+      "server": "jp1-r.ddns-link-b5.uk",
+      "server_port": 10031,
+      "uuid": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tcp_fast_open": false,
+      "tls": {
+        "enabled": true,
+        "server_name": "s0.awsstatic.com",
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE",
+          "short_id": "686c0ef0"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "update"
+      },
+      "network": "tcp",
+      "flow": ""
+    },
+    {
+      "type": "vless",
+      "tag": "JP-2",
+      "server": "jp2-r.ddns-link-b5.uk",
+      "server_port": 10032,
+      "uuid": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tcp_fast_open": false,
+      "tls": {
+        "enabled": true,
+        "server_name": "s0.awsstatic.com",
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE",
+          "short_id": "686c0ef0"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "update"
+      },
+      "network": "tcp",
+      "flow": ""
+    },
+    {
+      "tag": "JP1-HY2",
+      "type": "hysteria2",
+      "server": "jp1.dexlos.com",
+      "server_port": 1055,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp1.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "JP2-HY2",
+      "type": "hysteria2",
+      "server": "jp2.dexlos.com",
+      "server_port": 3125,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp2.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "JP3-HY2",
+      "type": "hysteria2",
+      "server": "jp3.dexlos.com",
+      "server_port": 5166,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp3.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "JP4-HY2",
+      "type": "hysteria2",
+      "server": "jp4.dexlos.com",
+      "server_port": 7512,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp4.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "JP5-HY2",
+      "type": "hysteria2",
+      "server": "jp5.dexlos.com",
+      "server_port": 9324,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp5.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "JP6-HY2",
+      "type": "hysteria2",
+      "server": "jp6.dexlos.com",
+      "server_port": 11658,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp6.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "JP7-HY2",
+      "type": "hysteria2",
+      "server": "jp7.dexlos.com",
+      "server_port": 13373,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp7.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "JP8-HY2",
+      "type": "hysteria2",
+      "server": "jp8.dexlos.com",
+      "server_port": 15157,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp8.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "JP9-HY2",
+      "type": "hysteria2",
+      "server": "jp9.dexlos.com",
+      "server_port": 17249,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp9.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "JP10-HY2",
+      "type": "hysteria2",
+      "server": "jp10.dexlos.com",
+      "server_port": 19295,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp10.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "type": "vless",
+      "tag": "KR-1",
+      "server": "kr1-r.ddns-link-b5.uk",
+      "server_port": 10046,
+      "uuid": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tcp_fast_open": false,
+      "tls": {
+        "enabled": true,
+        "server_name": "s0.awsstatic.com",
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE",
+          "short_id": "686c0ef0"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "update"
+      },
+      "network": "tcp",
+      "flow": ""
+    },
+    {
+      "type": "vless",
+      "tag": "KR-2",
+      "server": "kr2-r.ddns-link-b5.uk",
+      "server_port": 10047,
+      "uuid": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tcp_fast_open": false,
+      "tls": {
+        "enabled": true,
+        "server_name": "s0.awsstatic.com",
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE",
+          "short_id": "686c0ef0"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "update"
+      },
+      "network": "tcp",
+      "flow": ""
+    },
+    {
+      "type": "vless",
+      "tag": "SG-1",
+      "server": "sg1-r.ddns-link-b5.uk",
+      "server_port": 10036,
+      "uuid": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tcp_fast_open": false,
+      "tls": {
+        "enabled": true,
+        "server_name": "s0.awsstatic.com",
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE",
+          "short_id": "686c0ef0"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "update"
+      },
+      "network": "tcp",
+      "flow": ""
+    },
+    {
+      "type": "vless",
+      "tag": "SG-2",
+      "server": "sg2-r.ddns-link-b5.uk",
+      "server_port": 10037,
+      "uuid": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tcp_fast_open": false,
+      "tls": {
+        "enabled": true,
+        "server_name": "s0.awsstatic.com",
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE",
+          "short_id": "686c0ef0"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "update"
+      },
+      "network": "tcp",
+      "flow": ""
+    },
+    {
+      "tag": "TW1-HY2",
+      "type": "hysteria2",
+      "server": "tw1.dexlos.com",
+      "server_port": 1286,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "tw1.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "TW2-HY2",
+      "type": "hysteria2",
+      "server": "tw2.dexlos.com",
+      "server_port": 3902,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "tw2.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "TW3-HY2",
+      "type": "hysteria2",
+      "server": "tw3.dexlos.com",
+      "server_port": 5085,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "tw3.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "TW4-HY2",
+      "type": "hysteria2",
+      "server": "tw4.dexlos.com",
+      "server_port": 7253,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "tw4.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "TW5-HY2",
+      "type": "hysteria2",
+      "server": "tw5.dexlos.com",
+      "server_port": 9466,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "tw5.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "TW6-HY2",
+      "type": "hysteria2",
+      "server": "tw6.dexlos.com",
+      "server_port": 11325,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "tw6.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "TW7-HY2",
+      "type": "hysteria2",
+      "server": "tw7.dexlos.com",
+      "server_port": 13975,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "tw7.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "TW8-HY2",
+      "type": "hysteria2",
+      "server": "tw8.dexlos.com",
+      "server_port": 15427,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "tw8.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "TW9-HY2",
+      "type": "hysteria2",
+      "server": "tw9.dexlos.com",
+      "server_port": 17006,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "tw9.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "TW10-HY2",
+      "type": "hysteria2",
+      "server": "tw10.dexlos.com",
+      "server_port": 19166,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "tw10.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "US3-HY2",
+      "type": "hysteria2",
+      "server": "us3.dexlos.com",
+      "server_port": 5787,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "us3.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "US4-HY2",
+      "type": "hysteria2",
+      "server": "us4.dexlos.com",
+      "server_port": 7420,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "us4.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "US5-HY2",
+      "type": "hysteria2",
+      "server": "us5.dexlos.com",
+      "server_port": 9579,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "us5.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "US6-HY2",
+      "type": "hysteria2",
+      "server": "us6.dexlos.com",
+      "server_port": 11134,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "us6.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "US7-HY2",
+      "type": "hysteria2",
+      "server": "us7.dexlos.com",
+      "server_port": 13291,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "us7.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "US8-HY2",
+      "type": "hysteria2",
+      "server": "us8.dexlos.com",
+      "server_port": 15119,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "us8.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "US9-HY2",
+      "type": "hysteria2",
+      "server": "us9.dexlos.com",
+      "server_port": 17876,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "us9.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "tag": "US10-HY2",
+      "type": "hysteria2",
+      "server": "us10.dexlos.com",
+      "server_port": 19096,
+      "password": "FC2EA5D0-17D7-4182-B4AD-B3353BA05FF8",
+      "tls": {
+        "enabled": true,
+        "server_name": "us10.dexlos.com",
+        "insecure": false
+      },
+      "obfs": {}
+    },
+    {
+      "type": "selector",
+      "tag": "🏠 私有网络",
+      "outbounds": [
+        "🚀 节点选择",
+        "DIRECT",
+        "REJECT",
+        "⚡ 自动选择",
+        "HK-1",
+        "HK-2",
+        "HK3-HY2",
+        "HK4-HY2",
+        "HK5-HY2",
+        "JP-1",
+        "JP-2",
+        "JP1-HY2",
+        "JP2-HY2",
+        "JP3-HY2",
+        "JP4-HY2",
+        "JP5-HY2",
+        "JP6-HY2",
+        "JP7-HY2",
+        "JP8-HY2",
+        "JP9-HY2",
+        "JP10-HY2",
+        "KR-1",
+        "KR-2",
+        "SG-1",
+        "SG-2",
+        "TW1-HY2",
+        "TW2-HY2",
+        "TW3-HY2",
+        "TW4-HY2",
+        "TW5-HY2",
+        "TW6-HY2",
+        "TW7-HY2",
+        "TW8-HY2",
+        "TW9-HY2",
+        "TW10-HY2",
+        "US3-HY2",
+        "US4-HY2",
+        "US5-HY2",
+        "US6-HY2",
+        "US7-HY2",
+        "US8-HY2",
+        "US9-HY2",
+        "US10-HY2"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🔒 国内服务",
+      "outbounds": [
+        "🚀 节点选择",
+        "DIRECT",
+        "REJECT",
+        "⚡ 自动选择",
+        "HK-1",
+        "HK-2",
+        "HK3-HY2",
+        "HK4-HY2",
+        "HK5-HY2",
+        "JP-1",
+        "JP-2",
+        "JP1-HY2",
+        "JP2-HY2",
+        "JP3-HY2",
+        "JP4-HY2",
+        "JP5-HY2",
+        "JP6-HY2",
+        "JP7-HY2",
+        "JP8-HY2",
+        "JP9-HY2",
+        "JP10-HY2",
+        "KR-1",
+        "KR-2",
+        "SG-1",
+        "SG-2",
+        "TW1-HY2",
+        "TW2-HY2",
+        "TW3-HY2",
+        "TW4-HY2",
+        "TW5-HY2",
+        "TW6-HY2",
+        "TW7-HY2",
+        "TW8-HY2",
+        "TW9-HY2",
+        "TW10-HY2",
+        "US3-HY2",
+        "US4-HY2",
+        "US5-HY2",
+        "US6-HY2",
+        "US7-HY2",
+        "US8-HY2",
+        "US9-HY2",
+        "US10-HY2"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🌐 非中国",
+      "outbounds": [
+        "🚀 节点选择",
+        "DIRECT",
+        "REJECT",
+        "⚡ 自动选择",
+        "HK-1",
+        "HK-2",
+        "HK3-HY2",
+        "HK4-HY2",
+        "HK5-HY2",
+        "JP-1",
+        "JP-2",
+        "JP1-HY2",
+        "JP2-HY2",
+        "JP3-HY2",
+        "JP4-HY2",
+        "JP5-HY2",
+        "JP6-HY2",
+        "JP7-HY2",
+        "JP8-HY2",
+        "JP9-HY2",
+        "JP10-HY2",
+        "KR-1",
+        "KR-2",
+        "SG-1",
+        "SG-2",
+        "TW1-HY2",
+        "TW2-HY2",
+        "TW3-HY2",
+        "TW4-HY2",
+        "TW5-HY2",
+        "TW6-HY2",
+        "TW7-HY2",
+        "TW8-HY2",
+        "TW9-HY2",
+        "TW10-HY2",
+        "US3-HY2",
+        "US4-HY2",
+        "US5-HY2",
+        "US6-HY2",
+        "US7-HY2",
+        "US8-HY2",
+        "US9-HY2",
+        "US10-HY2"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🐟 漏网之鱼",
+      "outbounds": [
+        "🚀 节点选择",
+        "DIRECT",
+        "REJECT",
+        "⚡ 自动选择",
+        "HK-1",
+        "HK-2",
+        "HK3-HY2",
+        "HK4-HY2",
+        "HK5-HY2",
+        "JP-1",
+        "JP-2",
+        "JP1-HY2",
+        "JP2-HY2",
+        "JP3-HY2",
+        "JP4-HY2",
+        "JP5-HY2",
+        "JP6-HY2",
+        "JP7-HY2",
+        "JP8-HY2",
+        "JP9-HY2",
+        "JP10-HY2",
+        "KR-1",
+        "KR-2",
+        "SG-1",
+        "SG-2",
+        "TW1-HY2",
+        "TW2-HY2",
+        "TW3-HY2",
+        "TW4-HY2",
+        "TW5-HY2",
+        "TW6-HY2",
+        "TW7-HY2",
+        "TW8-HY2",
+        "TW9-HY2",
+        "TW10-HY2",
+        "US3-HY2",
+        "US4-HY2",
+        "US5-HY2",
+        "US6-HY2",
+        "US7-HY2",
+        "US8-HY2",
+        "US9-HY2",
+        "US10-HY2"
+      ]
+    }
+  ],
+  "route": {
+    "rule_set": [
+      {
+        "tag": "geolocation-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-geolocation-cn.srs"
+      },
+      {
+        "tag": "cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-cn.srs"
+      },
+      {
+        "tag": "geolocation-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geosite/geosite-geolocation-!cn.srs"
+      },
+      {
+        "tag": "private-ip",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geoip/geoip-private.srs"
+      },
+      {
+        "tag": "cn-ip",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/lyc8503/sing-box-rules/refs/heads/rule-set-geoip/geoip-cn.srs"
+      }
+    ],
+    "rules": [
+      {
+        "clash_mode": "direct",
+        "outbound": "DIRECT"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "rule_set": [
+          "geolocation-cn",
+          "cn"
+        ],
+        "outbound": "🔒 国内服务"
+      },
+      {
+        "rule_set": [
+          "geolocation-!cn"
+        ],
+        "outbound": "🌐 非中国"
+      },
+      {
+        "rule_set": [
+          "private-ip"
+        ],
+        "outbound": "🏠 私有网络"
+      },
+      {
+        "rule_set": [
+          "cn-ip"
+        ],
+        "outbound": "🔒 国内服务"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "🐟 漏网之鱼"
+  },
+   "experimental":{
+      "cache_file":{
+         "enabled":true,
+         "store_fakeip":true,
+         "store_rdrc":true
+      },
+      "clash_api":{
+         "external_controller":"127.0.0.1:9090",
+         "external_ui":"dashboard",
+         "secret":"111"
+      }
+   }
+}
