@@ -1,211 +1,83 @@
-port: 7890
-socks-port: 7891
-allow-lan: true
-mode: rule
-log-level: info
-external-controller: 127.0.0.1:6170
-ipv6: true
-unified-delay: false
-tcp-concurrent: true
-global-client-fingerprint: chrome
-hosts:
-  mtalk.google.com: 108.177.125.188
-experimental:
-  ignore-resolve-fail: true
-cfw-latency-url: https://connectivitycheck.gstatic.com/generate_204
-cfw-latency-type: 1
-cfw-latency-timeout: 5000
-cfw-conn-break-strategy: true
-clash-for-android:
-  append-system-dns: false
-  ui-subtitle-pattern: "[一-龥]{2,4}"
-url-rewrite:
-  - ^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
-  - ^https?:\/\/(ditu|maps).google\.cn https://maps.google.com 302
-sniffer:
-  enable: true
-  sniff:
-    TLS: {ports: [1-65535], override-destination: true}
-    HTTP: {ports: [1-65535], override-destination: true}
-    QUIC: {ports: [1-65535], override-destination: true}
-  skip-domain:
-    - Mijia Cloud
-    - dlg.io.mi.com
-    - +.push.apple.com
-  parse-pure-ip: false
-  force-dns-mapping: true
-  override-destination: true
-dns:
-  ipv6: false
-  enable: true
-  prefer-h3: true
-  listen: 0.0.0.0:1053
-  enhanced-mode: fake-ip
-  use-hosts: false
-  default-nameserver: [119.28.28.28, 119.29.29.29, 223.5.5.5, 223.6.6.6]
-  nameserver: [119.29.29.29, 223.5.5.5, tls://dot.pub:853, tls://dns.alidns.com:853, https://doh.pub:443/dns-query, https://dns.alidns.com:443/dns-query]
-  fallback: [https://dns.cloudflare.com/dns-query, https://doh.dns.sb/dns-query, tls://8.8.4.4:853]
-  fallback-filter: {geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32]}
-  fake-ip-range: 198.18.0.1/15
-  fake-ip-filter: ["*.lan", "*.localdomain", "*.example", "*.invalid", "*.localhost", "*.test", "*.local"]
-proxies:
-  - {name: HK HKT 01 @SubscriptionShare, server: 58.152.53.45, port: 443, type: trojan, password: BxceQaOe, sni: t.me%2Fripaojiedian, skip-cert-verify: true, udp: true, tfo: true}
-  - {name: HK AkileCloud 02 @SubscriptionShare, server: 220.130.58.136, port: 31102, type: trojan, password: cce7d9cb-fef1-4a74-b1c5-afaf7f0428ac, sni: green2.cdntencentmusic.com, skip-cert-verify: true, udp: true, tfo: true}
-  - {name: HK AkileCloud 03 @SubscriptionShare, server: 220.130.58.136, port: 31103, type: trojan, password: 3f58bbd2-4bac-4c33-9dd9-788d7a35d8bf, sni: green2.cdntencentmusic.com, skip-cert-verify: true, udp: true, tfo: true}
-  - {name: HK AKILE 04 @SubscriptionShare, server: 220.130.58.136, port: 31101, type: trojan, password: d81fa396-b58d-4b6d-bd83-161f761c3452, sni: green2.cdntencentmusic.com, skip-cert-verify: true, udp: true, tfo: true}
-  - {name: SG LEASEWEB 01 @SubscriptionShare, server: 36.141.116.172, port: 39505, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: SG CDS 02 @SubscriptionShare, server: 162.159.13.82, port: 2053, type: vless, tls: true, uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c, servername: snippet.chinam.indevs.in, network: ws, ws-opts: {path: "/danfeng?ed=2560", headers: {Host: snippet.chinam.indevs.in}}, skip-cert-verify: true, udp: true, tfo: true}
-  - {name: JP GCSL 01 @SubscriptionShare, server: 36.141.116.172, port: 19529, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: JP GCSL 02 @SubscriptionShare, server: 36.141.116.172, port: 40020, type: ss, cipher: 2022-blake3-aes-256-gcm, password: MDhhMTdjZDI0MjI2ZWRlNjE5OWQyNDYxZjM1MjA0OTg=:MGY0MDExNDQtODJlMS00ODVkLWE3ZGEtZjkzZDg2ZTM=, udp: true, tfo: true}
-  - {name: US GCSL 01 @SubscriptionShare, server: 36.141.116.172, port: 12980, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: US FranTech 02 @SubscriptionShare, server: 36.141.116.172, port: 12984, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: US FranTech 03 @SubscriptionShare, server: 36.141.116.172, port: 39203, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: US Oracle 04 @SubscriptionShare, server: 172.67.184.138, port: 443, type: trojan, password: e19d5b93-67b1-4af7-b578-ecd46aac69a0, skip-cert-verify: true, network: ws, ws-opts: {path: ""}, udp: true, tfo: true}
-  - {name: TW DCBG 01 @SubscriptionShare, server: 36.141.116.172, port: 32207, type: ss, cipher: 2022-blake3-aes-128-gcm, password: NjVhMWE2YmVmNzg4MTcwMA==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: TW DCBG 02 @SubscriptionShare, server: 36.141.116.172, port: 45691, type: ss, cipher: 2022-blake3-aes-128-gcm, password: NjVhMWE2YmVmNzg4MTcwMA==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: AE MNL 01 @SubscriptionShare, server: 36.141.116.172, port: 29527, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: AU ICSL 01 @SubscriptionShare, server: 91.247.177.207, port: 443, type: vless, tls: true, uuid: 5a9a33eb-546c-4ffa-aadc-1c75b3ac084b, servername: vy1.sangar.net, alpn: [h3], flow: xtls-rprx-vision, skip-cert-verify: true, udp: true, tfo: true}
-  - {name: CA GCSL 01 @SubscriptionShare, server: 36.141.116.172, port: 39985, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: DE GCSL 01 @SubscriptionShare, server: 36.141.116.172, port: 39981, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: FR OVH 01 @SubscriptionShare, server: 69.84.182.152, port: 443, type: vless, tls: true, uuid: eee3e4b0-0dfc-46af-8c6e-cb4241e9258e, servername: rAyAn-cOnFiG-fr-1.pAriSa.dPdNs.oRg, network: ws, ws-opts: {path: /ws, headers: {Host: rAyAn-cOnFiG-fr-1.pAriSa.dPdNs.oRg}}, skip-cert-verify: true, udp: true, tfo: true}
-  - {name: GB GCSL 01 @SubscriptionShare, server: 36.141.116.172, port: 39209, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: MU AKILE 01 @SubscriptionShare, server: 36.141.116.172, port: 40023, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: MU ACCK 02 @SubscriptionShare, server: 36.141.116.172, port: 29527, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: MU ACCK 03 @SubscriptionShare, server: 36.141.116.172, port: 40011, type: ss, cipher: 2022-blake3-aes-128-gcm, password: MDhhMTdjZDI0MjI2ZWRlNg==:MGY0MDExNDQtODJlMS00OA==, udp: true, tfo: true}
-  - {name: NL AkhaliNet 01 @SubscriptionShare, server: 185.172.88.4, port: 22231, type: vless, tls: true, uuid: 2ad04efa-d18a-442b-875f-48d12e11d822, servername: u1.mizulina.top, flow: xtls-rprx-vision, skip-cert-verify: true, udp: true, tfo: true}
-  - {name: Unknown CDS 01 @SubscriptionShare, server: 13.212.19.46, port: 50000, type: ss, cipher: aes-256-gcm, password: a9a37b54-e95a-4bc4-9637-7fd00a03dd2e, udp: true, tfo: true}
-  - {name: VN VIETPN 01 @SubscriptionShare, server: 103.186.155.227, port: 38388, type: ss, cipher: aes-256-cfb, password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV, udp: true, tfo: true}
-  - {name: VN VIETPN 02 @SubscriptionShare, server: 103.186.154.43, port: 38388, type: ss, cipher: aes-256-cfb, password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV, udp: true, tfo: true}
-proxy-groups:
-  - {name: Proxy, type: select, proxies: [Auto, RoundRobin, DIRECT, REJECT, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan, HK HKT 01 @SubscriptionShare, HK AkileCloud 02 @SubscriptionShare, HK AkileCloud 03 @SubscriptionShare, HK AKILE 04 @SubscriptionShare, SG LEASEWEB 01 @SubscriptionShare, SG CDS 02 @SubscriptionShare, JP GCSL 01 @SubscriptionShare, JP GCSL 02 @SubscriptionShare, US GCSL 01 @SubscriptionShare, US FranTech 02 @SubscriptionShare, US FranTech 03 @SubscriptionShare, US Oracle 04 @SubscriptionShare, TW DCBG 01 @SubscriptionShare, TW DCBG 02 @SubscriptionShare, AE MNL 01 @SubscriptionShare, AU ICSL 01 @SubscriptionShare, CA GCSL 01 @SubscriptionShare, DE GCSL 01 @SubscriptionShare, FR OVH 01 @SubscriptionShare, GB GCSL 01 @SubscriptionShare, MU AKILE 01 @SubscriptionShare, MU ACCK 02 @SubscriptionShare, MU ACCK 03 @SubscriptionShare, NL AkhaliNet 01 @SubscriptionShare, Unknown CDS 01 @SubscriptionShare, VN VIETPN 01 @SubscriptionShare, VN VIETPN 02 @SubscriptionShare]}
-  - {name: Auto, type: fallback, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [HK HKT 01 @SubscriptionShare, HK AkileCloud 02 @SubscriptionShare, HK AkileCloud 03 @SubscriptionShare, HK AKILE 04 @SubscriptionShare, SG LEASEWEB 01 @SubscriptionShare, SG CDS 02 @SubscriptionShare, JP GCSL 01 @SubscriptionShare, JP GCSL 02 @SubscriptionShare, US GCSL 01 @SubscriptionShare, US FranTech 02 @SubscriptionShare, US FranTech 03 @SubscriptionShare, US Oracle 04 @SubscriptionShare, TW DCBG 01 @SubscriptionShare, TW DCBG 02 @SubscriptionShare, AE MNL 01 @SubscriptionShare, AU ICSL 01 @SubscriptionShare, CA GCSL 01 @SubscriptionShare, DE GCSL 01 @SubscriptionShare, FR OVH 01 @SubscriptionShare, GB GCSL 01 @SubscriptionShare, MU AKILE 01 @SubscriptionShare, MU ACCK 02 @SubscriptionShare, MU ACCK 03 @SubscriptionShare, NL AkhaliNet 01 @SubscriptionShare, Unknown CDS 01 @SubscriptionShare, VN VIETPN 01 @SubscriptionShare, VN VIETPN 02 @SubscriptionShare]}
-  - {name: RoundRobin, type: load-balance, strategy: round-robin, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, tolerance: 100, proxies: [HK HKT 01 @SubscriptionShare, HK AkileCloud 02 @SubscriptionShare, HK AkileCloud 03 @SubscriptionShare, HK AKILE 04 @SubscriptionShare, SG LEASEWEB 01 @SubscriptionShare, SG CDS 02 @SubscriptionShare, JP GCSL 01 @SubscriptionShare, JP GCSL 02 @SubscriptionShare, US GCSL 01 @SubscriptionShare, US FranTech 02 @SubscriptionShare, US FranTech 03 @SubscriptionShare, US Oracle 04 @SubscriptionShare, TW DCBG 01 @SubscriptionShare, TW DCBG 02 @SubscriptionShare, AE MNL 01 @SubscriptionShare, AU ICSL 01 @SubscriptionShare, CA GCSL 01 @SubscriptionShare, DE GCSL 01 @SubscriptionShare, FR OVH 01 @SubscriptionShare, GB GCSL 01 @SubscriptionShare, MU AKILE 01 @SubscriptionShare, MU ACCK 02 @SubscriptionShare, MU ACCK 03 @SubscriptionShare, NL AkhaliNet 01 @SubscriptionShare, Unknown CDS 01 @SubscriptionShare, VN VIETPN 01 @SubscriptionShare, VN VIETPN 02 @SubscriptionShare]}
-  - {name: Apple, type: select, proxies: [Proxy, DIRECT, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: BiliBili, type: select, proxies: [Proxy, DIRECT, REJECT, Auto, 🇭🇰 Hong Kong, 🇨🇳 Taiwan]}
-  - {name: Netflix, type: select, proxies: [Proxy, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: Disney, type: select, proxies: [Proxy, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: YouTube, type: select, proxies: [Proxy, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: TikTok, type: select, proxies: [Proxy, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: GlobalMedia, type: select, proxies: [Proxy, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: OpenAI, type: select, proxies: [Proxy, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: Google, type: select, proxies: [Proxy, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: Microsoft, type: select, proxies: [Proxy, DIRECT, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: Steam, type: select, proxies: [Proxy, DIRECT, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: PayPal, type: select, proxies: [Proxy, DIRECT, REJECT, Auto, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: Telegram, type: select, proxies: [Proxy, 🇭🇰 Hong Kong, 🇸🇬 Singapore, 🇯🇵 Japan, 🇺🇸 United States, 🇨🇳 Taiwan]}
-  - {name: Lan, type: select, proxies: [Proxy, Auto, DIRECT, REJECT]}
-  - {name: ChinaMax, type: select, proxies: [Proxy, Auto, DIRECT, REJECT]}
-  - {name: Final, type: select, proxies: [Proxy, Auto, DIRECT, REJECT]}
-  - {name: 🇭🇰 Hong Kong, type: url-test, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [HK HKT 01 @SubscriptionShare, HK AkileCloud 02 @SubscriptionShare, HK AkileCloud 03 @SubscriptionShare, HK AKILE 04 @SubscriptionShare]}
-  - {name: 🇸🇬 Singapore, type: url-test, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [SG LEASEWEB 01 @SubscriptionShare, SG CDS 02 @SubscriptionShare]}
-  - {name: 🇯🇵 Japan, type: url-test, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [JP GCSL 01 @SubscriptionShare, JP GCSL 02 @SubscriptionShare]}
-  - {name: 🇺🇸 United States, type: url-test, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [US GCSL 01 @SubscriptionShare, US FranTech 02 @SubscriptionShare, US FranTech 03 @SubscriptionShare, US Oracle 04 @SubscriptionShare]}
-  - {name: 🇨🇳 Taiwan, type: url-test, url: http://connectivitycheck.gstatic.com/generate_204, interval: 300, proxies: [TW DCBG 01 @SubscriptionShare, TW DCBG 02 @SubscriptionShare]}
-rules:
-  - RULE-SET,Apple_Classical_No_Resolve,Apple
-  - RULE-SET,BiliBili_No_Resolve,BiliBili
-  - RULE-SET,Netflix_No_Resolve,Netflix
-  - RULE-SET,Disney_No_Resolve,Disney
-  - RULE-SET,YouTube_No_Resolve,YouTube
-  - RULE-SET,TikTok_No_Resolve,TikTok
-  - RULE-SET,GlobalMedia_Classical_No_Resolve,GlobalMedia
-  - RULE-SET,OpenAI_No_Resolve,OpenAI
-  - RULE-SET,Google_No_Resolve,Google
-  - RULE-SET,Microsoft_No_Resolve,Microsoft
-  - RULE-SET,PayPal_No_Resolve,PayPal
-  - RULE-SET,Telegram_No_Resolve,Telegram
-  - RULE-SET,Steam_No_Resolve,Steam
-  - RULE-SET,Lan_No_Resolve,Lan
-  - RULE-SET,ChinaMax_Classical_No_IPv6_No_Resolve,ChinaMax
-  - MATCH,Final
-rule-providers:
-  Apple_Classical_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical_No_Resolve.yaml
-    path: ./providers/1382714063091383325.yaml
-    interval: 86400
-  BiliBili_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili_No_Resolve.yaml
-    path: ./providers/15427680467615148193.yaml
-    interval: 86400
-  Netflix_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_No_Resolve.yaml
-    path: ./providers/3095517576045242515.yaml
-    interval: 86400
-  Disney_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney_No_Resolve.yaml
-    path: ./providers/16730261648837664781.yaml
-    interval: 86400
-  YouTube_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube_No_Resolve.yaml
-    path: ./providers/7793569929749877519.yaml
-    interval: 86400
-  TikTok_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok_No_Resolve.yaml
-    path: ./providers/11554982043438683725.yaml
-    interval: 86400
-  GlobalMedia_Classical_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical_No_Resolve.yaml
-    path: ./providers/8586276791519100849.yaml
-    interval: 86400
-  OpenAI_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml
-    path: ./providers/10003867553944401341.yaml
-    interval: 86400
-  Google_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google_No_Resolve.yaml
-    path: ./providers/6866317176011189215.yaml
-    interval: 86400
-  Microsoft_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft_No_Resolve.yaml
-    path: ./providers/5985473173379392979.yaml
-    interval: 86400
-  PayPal_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal_No_Resolve.yaml
-    path: ./providers/15088493651586754751.yaml
-    interval: 86400
-  Telegram_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml
-    path: ./providers/1666671147171134695.yaml
-    interval: 86400
-  Steam_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam_No_Resolve.yaml
-    path: ./providers/185371531745484315.yaml
-    interval: 86400
-  Lan_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan_No_Resolve.yaml
-    path: ./providers/1243614840536111263.yaml
-    interval: 86400
-  ChinaMax_Classical_No_IPv6_No_Resolve:
-    type: http
-    behavior: classical
-    url: https://raw.gitmirror.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_IPv6_No_Resolve.yaml
-    path: ./providers/15219913603349139099.yaml
-    interval: 86400
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@hk4.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.lamer.com.hk&fp=chrome&pbk=f3IeMtJOBxpQanoPmilQ7_MGqwef32Ah1rydOYwO5i4&sid=377bb9d82638&packetEncoding=xudp#%F0%9F%87%AD%F0%9F%87%B0Hong%20Kong%20Amazon%2004
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@hk6.miyazono-kaori.com:43143?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.lamer.com.hk&fp=chrome&pbk=XkUuKF3OF9oMZw4pj_JWw97zuYMO74v63oA-eUS-aEc&sid=c4927c198526&packetEncoding=xudp#%F0%9F%87%AD%F0%9F%87%B0Hong%20Kong%20Amazon%2006
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@hk3.miyazono-kaori.com:40861?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.lamer.com.hk&fp=chrome&pbk=jPymHTkjS3jmcg1bZaFB99XX1BeT3cblMXdWm_iUljc&sid=ae4164b19a36&packetEncoding=xudp#%F0%9F%87%AD%F0%9F%87%B0Hong%20Kong%20Amazon%2003
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@jp1.miyazono-kaori.com:25485?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.apple.com.cn&fp=chrome&pbk=SBtH5WAmKHCBVvGPG9XbgoqLEwtK3Ds7yECDi2aCnkQ&sid=c435f57ec8ab&packetEncoding=xudp#%F0%9F%87%AF%F0%9F%87%B5Japan%2001%20Amazon
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@jp2.miyazono-kaori.com:16269?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.toshiba.co.jp&fp=chrome&pbk=HK9HY1hBLFL7RQeBe4sGRTq46N9z2AHpYlQL-3NXoQA&sid=250e45e0e18002&packetEncoding=xudp#%F0%9F%87%AF%F0%9F%87%B5Japan%2002%20Amazon
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@jp4.miyazono-kaori.com:43458?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.ihi.co.jp&fp=chrome&pbk=hnoDqVeWJ15bz97-ASu-XoFlYPBJqRPcUMzKfy0eFFU&sid=b666ad3f&packetEncoding=xudp#%F0%9F%87%AF%F0%9F%87%B5Japan%2004%20Amazon
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@jp3.miyazono-kaori.com:40362?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.apple.com.cn&fp=chrome&pbk=IsN-pNSqFdFG7nD0lIKvfmrel822eQLcRRqf9WnKOGU&sid=e647a31b3a&packetEncoding=xudp#%F0%9F%87%AF%F0%9F%87%B5Japan%2003%20Amazon
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@sg1.miyazono-kaori.com:35248?encryption=none&flow=xtls-rprx-vision&security=reality&sni=iosapps.itunes.apple.com&fp=chrome&pbk=sKsPNrWO8PHvFQJ3AP4f03Jn26cq0jTaWZta8p8IYXU&sid=b04b1eed765994&packetEncoding=xudp#%F0%9F%87%B8%F0%9F%87%ACSingapore%2001%20Amazon
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@sg2.miyazono-kaori.com:35248?encryption=none&flow=xtls-rprx-vision&security=reality&sni=iosapps.itunes.apple.com&fp=chrome&pbk=6yWgwGZPcdfCVKYmVhglcYDLDZCKGqwNerkVEXvL_iI&sid=615e549249eee6&packetEncoding=xudp#%F0%9F%87%B8%F0%9F%87%ACSingapore%2002%20Amazon
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@sg3.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.lamer.com.sg&fp=chrome&pbk=dCFn7omP5KTTgZrZhzvCzFvWcjQJ9Gl6o7Y6J_LU0iU&sid=f6dc01f7a5f3&packetEncoding=xudp#%F0%9F%87%B8%F0%9F%87%ACSingapore%2003%20Amazon
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@tw3.miyazono-kaori.com:38355?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.wistron.com&fp=chrome&pbk=SHxJvBnoYzKJI2KphnyStiT7vJE1EXHSenPf0ZVQtD4&sid=ed0b4abd06d6&packetEncoding=xudp#%F0%9F%87%B9%F0%9F%87%BCTaiwan%20Amazon%2003
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@tw4.miyazono-kaori.com:44466?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.wistron.com&fp=chrome&pbk=mEBOktT4D3v98zvInsb2AKuW23BJA5Y4IHFneQ8jWVg&sid=b3b82d4ba75d&packetEncoding=xudp#%F0%9F%87%B9%F0%9F%87%BCTaiwan%20Amazon%2004
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@sg4.miyazono-kaori.com:37293?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.changiairport.com&fp=chrome&pbk=FouIQzveajvrzQktXT9-woyEqcztxu_xHRZyGtbATE8&sid=9bec98b56789&packetEncoding=xudp#%F0%9F%87%B8%F0%9F%87%ACSingapore%2004%20Amazon
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@hk1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.microsoft.com&fp=chrome&pbk=JEH14p4YvGvmDdBct-yekywfh8xcbbHjTBoBteh_qSs&sid=7538ac&packetEncoding=xudp#%F0%9F%87%AD%F0%9F%87%B0Hong%20Kong%20Telecom%2001
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@hk2.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.microsoft.com&fp=chrome&pbk=mZtlvdA_Hx2TJDInSO9WF4N241Y4oqUoCWjFcw3fNkA&sid=4c5632849b&packetEncoding=xudp#%F0%9F%87%AD%F0%9F%87%B0Hong%20Kong%20Telecom%2002
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@us4.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=download-porter.hoyoverse.com&fp=chrome&pbk=FD_yD5MaSuXVWEwhLNNGENTo_uweNKOJ_80NqUo-YRM&sid=2bcfe3cf91d17f&packetEncoding=xudp#%F0%9F%87%BA%F0%9F%87%B8America%2004%20Phoenix
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@us2.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=download-porter.hoyoverse.com&fp=chrome&pbk=OIVDQIpAT0W0VQ5E8qHlBZjXtcPOxrbWpx3CxN5L-iQ&sid=2714177825354e&packetEncoding=xudp#%F0%9F%87%BA%F0%9F%87%B8America%2002%20San%20Jos%C3%A9
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@us3.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=download-porter.hoyoverse.com&fp=chrome&pbk=W69IUo4AnRh5R8kBqp5q88Ttaf8rB5ZeqbvQpS5krTY&sid=9f3d2bcc02a2&packetEncoding=xudp#%F0%9F%87%BA%F0%9F%87%B8America%2003%20Phoenix
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@fr2.miyazono-kaori.com:42227?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.edf.fr&fp=chrome&pbk=ROIkuV9YB-maqiJYV1NEof4LFUT6w6heuLujfZ6N7gQ&sid=776a607b27a8&packetEncoding=xudp#%F0%9F%87%AB%F0%9F%87%B7France%20Paris%2002
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@fr1.miyazono-kaori.com:47449?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.edf.fr&fp=chrome&pbk=pjLn2eZLvSGmYQ2-KMAd3P9BwmNzPcZO7W2YDEaJ8TQ&sid=b640be7a&packetEncoding=xudp#%F0%9F%87%AB%F0%9F%87%B7France%20Paris%2001
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@uk2.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.bp.com&fp=chrome&pbk=QdYs12kmf0mAXNOEPgMpLN5dbZUlgvRK2zCqynOmqBk&sid=20&packetEncoding=xudp#%F0%9F%87%AC%F0%9F%87%A7United%20Kingdom%2002
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@uk1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.bp.com&fp=chrome&pbk=_dsOu_vxEU7pY3sIeGJxIpR0Ac2KoqIyBor2Bx0CwGA&sid=d923&packetEncoding=xudp#%F0%9F%87%AC%F0%9F%87%A7United%20Kingdom%2001
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@de2.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.siemens.com&fp=chrome&pbk=hHRpSeXU-ajNidKeR9OveKdIl7fuEZZodoc2TiYBYGU&sid=0a9b2233cd4d&packetEncoding=xudp#%F0%9F%87%A9%F0%9F%87%AADeutschland%2002
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@nl1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.philips.com&fp=chrome&pbk=AFQAIB5u9Uu6nf9fkP1BdcSHivSuUv97l4FH-LoFYgw&sid=92dca6&packetEncoding=xudp#%F0%9F%87%B3%F0%9F%87%B1Netherlands%2001
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@de1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.siemens.com&fp=chrome&pbk=4HHUcSIHNb6CLk7RMzTbVmH8-XNpRwAbILszBoCiQB8&sid=3c4dd960&packetEncoding=xudp#%F0%9F%87%A9%F0%9F%87%AADeutschland%2001
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@tw2.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.apple.com&fp=chrome&pbk=cJc4dNsluJs9LimkkO6uVVafilOvr6H8Jx2uM9JnhEE&sid=129271&packetEncoding=xudp#%F0%9F%87%B9%F0%9F%87%BCTaiwan%20Hinet%2002
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@tw1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.apple.com&fp=chrome&pbk=KJgODVMTQcncG_l1ZCDhzn8gEgMU2YRl2Yw2je6moWY&sid=c0d856ec&packetEncoding=xudp#%F0%9F%87%B9%F0%9F%87%BCTaiwan%20Hinet%2001
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@hk5.miyazono-kaori.com:24435?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.lamer.com.hk&fp=chrome&pbk=n89hJIFnI7qq_mPq_vyEeiV0848cuXhH7Hpd_b1jPBw&sid=f2399345b198&packetEncoding=xudp#%F0%9F%87%AD%F0%9F%87%B0Hong%20Kong%20Amazon%2005
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@it2.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.iveco.com&fp=chrome&pbk=hDWOdBBvF7IJ8ffX8CUt2EAjh_0ep22R5nKH75FUIzk&sid=407ee6112d4a9da6&packetEncoding=xudp#%F0%9F%87%AE%F0%9F%87%B9Italy%20Milan%2002
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@it1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.iveco.com&fp=chrome&pbk=PF5_rJAI3CO2ItGu722j3qtvvprUHoTv5emfmIIUyyA&sid=10656bee&packetEncoding=xudp#%F0%9F%87%AE%F0%9F%87%B9Italy%20Milan%2001
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@nl2.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.philips.com&fp=chrome&pbk=Ncb78PVwvwU2tB1eiOlJd0ZCG2CbqG7-dPIHztlq2yM&sid=69cc4c0d5e&packetEncoding=xudp#%F0%9F%87%B3%F0%9F%87%B1Netherlands%2002
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@us1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=download-porter.hoyoverse.com&fp=chrome&pbk=qDDTR04DF-3UmwgHVoImoIHAo_SuLzIBcdE19SG1cQ4&sid=d3b332c28e&packetEncoding=xudp#%F0%9F%87%A6%F0%9F%87%B6%E5%89%A9%E4%BD%99%E6%B5%81%E9%87%8F%EF%BC%9A685.7%20GB
+hysteria2://0ca4d383-8463-4a5a-af24-d9a115fde26e@kr2.miyazono-kaori.com:40000-50000?obfs-password=rVYx28ncsHBinunc&upmbps=1000&downmbps=1000&security=tls&sni=kr2.miyazono-kaori.com#%F0%9F%87%B0%F0%9F%87%B7Korea%2002%20Chuncheon
+hysteria2://0ca4d383-8463-4a5a-af24-d9a115fde26e@kr1.miyazono-kaori.com:40000-50000?obfs-password=MKsqfibVxwhZ3pCf&security=tls&sni=kr1.miyazono-kaori.com#%F0%9F%87%B0%F0%9F%87%B7Korea%2001%20Chuncheon
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@us1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=download-porter.hoyoverse.com&fp=chrome&pbk=qDDTR04DF-3UmwgHVoImoIHAo_SuLzIBcdE19SG1cQ4&sid=d3b332c28e&packetEncoding=xudp#%F0%9F%87%A6%F0%9F%87%B6%E8%B7%9D%E7%A6%BB%E4%B8%8B%E6%AC%A1%E9%87%8D%E7%BD%AE%E5%89%A9%E4%BD%99%EF%BC%9A5%20%E5%A4%A9
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@us1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=download-porter.hoyoverse.com&fp=chrome&pbk=qDDTR04DF-3UmwgHVoImoIHAo_SuLzIBcdE19SG1cQ4&sid=d3b332c28e&packetEncoding=xudp#%F0%9F%87%A6%F0%9F%87%B6%E5%A5%97%E9%A4%90%E5%88%B0%E6%9C%9F%EF%BC%9A2026-02-18
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@us1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=download-porter.hoyoverse.com&fp=chrome&pbk=qDDTR04DF-3UmwgHVoImoIHAo_SuLzIBcdE19SG1cQ4&sid=d3b332c28e&packetEncoding=xudp#%F0%9F%87%A6%F0%9F%87%B6%E2%9A%A0%EF%B8%8F%E8%8A%82%E7%82%B9%E4%B8%8D%E9%80%9A%E8%AF%B7%E6%9B%B4%E6%96%B0%E8%AE%A2%E9%98%85
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@us1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=download-porter.hoyoverse.com&fp=chrome&pbk=qDDTR04DF-3UmwgHVoImoIHAo_SuLzIBcdE19SG1cQ4&sid=d3b332c28e&packetEncoding=xudp#%F0%9F%87%A6%F0%9F%87%B6%E5%AE%98%E7%BD%91%EF%BC%9Akitty.su
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@us1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=download-porter.hoyoverse.com&fp=chrome&pbk=qDDTR04DF-3UmwgHVoImoIHAo_SuLzIBcdE19SG1cQ4&sid=d3b332c28e&packetEncoding=xudp#%F0%9F%87%A6%F0%9F%87%B6TG%E9%A2%91%E9%81%93%EF%BC%9A@kittythenight
+vless://0ca4d383-8463-4a5a-af24-d9a115fde26e@us1.miyazono-kaori.com:443?encryption=none&flow=xtls-rprx-vision&security=reality&sni=download-porter.hoyoverse.com&fp=chrome&pbk=qDDTR04DF-3UmwgHVoImoIHAo_SuLzIBcdE19SG1cQ4&sid=d3b332c28e&packetEncoding=xudp#%F0%9F%87%BA%F0%9F%87%B8America%2001%20San%20Jos%C3%A9
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37113#%F0%9F%87%A8%F0%9F%87%B3%20TW%20%7C%20%E5%8F%B0%E5%8C%9703%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:52181#%F0%9F%87%A8%F0%9F%87%B3%20TW%20%7C%20%E5%8F%B0%E5%8C%9701%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:37115#%F0%9F%87%A8%F0%9F%87%B3%20TW%20%7C%20%E5%8F%B0%E5%8C%9704%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:52181#%F0%9F%87%A8%F0%9F%87%B3%20TW%20%7C%20%E5%8F%B0%E5%8C%9701%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37115#%F0%9F%87%A8%F0%9F%87%B3%20TW%20%7C%20%E5%8F%B0%E5%8C%9704%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:37113#%F0%9F%87%A8%F0%9F%87%B3%20TW%20%7C%20%E5%8F%B0%E5%8C%9703%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:37107#%F0%9F%87%B8%F0%9F%87%AC%20SG%20%7C%20%E7%8B%AE%E5%9F%8E02%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37110#%F0%9F%87%B8%F0%9F%87%AC%20SG%20%7C%20%E7%8B%AE%E5%9F%8E04%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@s.osjrhh.com:37119#%F0%9F%87%AF%F0%9F%87%B5%20JP%20%7C%20%E6%97%A5%E6%9C%AC03%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:37109#%F0%9F%87%B8%F0%9F%87%AC%20SG%20%7C%20%E7%8B%AE%E5%9F%8E03%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37112#%F0%9F%87%A8%F0%9F%87%B3%20TW%20%7C%20%E5%8F%B0%E5%8C%9702%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@s.osjrhh.com:37118#%F0%9F%87%AF%F0%9F%87%B5%20JP%20%7C%20%E6%97%A5%E6%9C%AC02%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:26687#%F0%9F%87%B8%F0%9F%87%AC%20SG%20%7C%20%E7%8B%AE%E5%9F%8E01%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sb.osjrhh.com:37120#%F0%9F%87%AF%F0%9F%87%B5%20JP%20%7C%20%E6%97%A5%E6%9C%AC04%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:37104#%F0%9F%87%AD%F0%9F%87%B0%20HK%20%7C%20%E9%A6%99%E6%B8%AF04%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@s.osjrhh.com:31301#%F0%9F%87%AF%F0%9F%87%B5%20JP%20%7C%20%E6%97%A5%E6%9C%AC01%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:37110#%F0%9F%87%B8%F0%9F%87%AC%20SG%20%7C%20%E7%8B%AE%E5%9F%8E04%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37109#%F0%9F%87%B8%F0%9F%87%AC%20SG%20%7C%20%E7%8B%AE%E5%9F%8E03%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:26687#%F0%9F%87%B8%F0%9F%87%AC%20SG%20%7C%20%E7%8B%AE%E5%9F%8E01%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sb.osjrhh.com:37118#%F0%9F%87%AF%F0%9F%87%B5%20JP%20%7C%20%E6%97%A5%E6%9C%AC02%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37107#%F0%9F%87%B8%F0%9F%87%AC%20SG%20%7C%20%E7%8B%AE%E5%9F%8E02%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37057#%F0%9F%87%AD%F0%9F%87%B0%20HK%20%7C%20%E9%A6%99%E6%B8%AF03%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37104#%F0%9F%87%AD%F0%9F%87%B0%20HK%20%7C%20%E9%A6%99%E6%B8%AF04%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:37057#%F0%9F%87%AD%F0%9F%87%B0%20HK%20%7C%20%E9%A6%99%E6%B8%AF03%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:37102#%F0%9F%87%AD%F0%9F%87%B0%20HK%20%7C%20%E9%A6%99%E6%B8%AF02%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@s.osjrhh.com:37120#%F0%9F%87%AF%F0%9F%87%B5%20JP%20%7C%20%E6%97%A5%E6%9C%AC04%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sb.osjrhh.com:37124#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20%E7%BE%8E%E5%9B%BD04%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37101#%E5%A5%97%E9%A4%90%E5%88%B0%E6%9C%9F%EF%BC%9A2026-03-14
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sb.osjrhh.com:37121#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20%E7%BE%8E%E5%9B%BD01%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37101#%E8%8B%A5%E5%87%BA%E7%8E%B0%E8%8A%82%E7%82%B9%E5%BC%82%E5%B8%B8%E8%AF%B7%E5%8F%8A%E6%97%B6%E6%9B%B4%E6%96%B0%E8%AE%A2%E9%98%85
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@s.osjrhh.com:37122#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20%E7%BE%8E%E5%9B%BD02%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sb.osjrhh.com:37122#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20%E7%BE%8E%E5%9B%BD02%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sb.osjrhh.com:37123#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20%E7%BE%8E%E5%9B%BD03%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@s.osjrhh.com:37124#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20%E7%BE%8E%E5%9B%BD04%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@s.osjrhh.com:37121#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20%E7%BE%8E%E5%9B%BD01%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37101#%F0%9F%87%AD%F0%9F%87%B0%20HK%20%7C%20%E9%A6%99%E6%B8%AF01%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@s.osjrhh.com:37123#%F0%9F%87%BA%F0%9F%87%B8%20US%20%7C%20%E7%BE%8E%E5%9B%BD03%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37101#%E5%89%A9%E4%BD%99%E6%B5%81%E9%87%8F%EF%BC%9A96.02%20GB
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:37101#%F0%9F%87%AD%F0%9F%87%B0%20HK%20%7C%20%E9%A6%99%E6%B8%AF01%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@stb.osjrhh.com:37112#%F0%9F%87%A8%F0%9F%87%B3%20TW%20%7C%20%E5%8F%B0%E5%8C%9702%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sb.osjrhh.com:31301#%F0%9F%87%AF%F0%9F%87%B5%20JP%20%7C%20%E6%97%A5%E6%9C%AC01%20B
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sh.osjrhh.com:37102#%F0%9F%87%AD%F0%9F%87%B0%20HK%20%7C%20%E9%A6%99%E6%B8%AF02%20A
+ss://YWVzLTEyOC1nY206OGJiM2NjMjUtOWQ2Mi00Nzc0LTkzYzYtMWM2NDY2ZWI2MmE1@sb.osjrhh.com:37119#%F0%9F%87%AF%F0%9F%87%B5%20JP%20%7C%20%E6%97%A5%E6%9C%AC03%20B
